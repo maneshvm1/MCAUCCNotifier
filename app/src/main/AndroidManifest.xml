@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vmsystems.mcauccnotifier">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -29,7 +29,8 @@
         <activity
             android:name=".StudentLoginInputActivity"
             android:theme="@style/NoActionBarTheme" />
-        <activity android:name=".StudentHomeActivity"></activity>
+        <activity android:name=".StudentHomeActivity" />
+        <activity android:name=".StaffLoginActivity"></activity>
     </application>
 
 </manifest>

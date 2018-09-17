@@ -17,6 +17,6 @@ public class WelcomeActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(),StudentLoginScanActivity.class));
     }
     public void btnStaffOnClick(View view){
-        startActivity(new Intent(getApplicationContext(),StudentLoginScanActivity.class));
+        startActivity(new Intent(getApplicationContext(),StaffLoginActivity.class));
     }
 }
