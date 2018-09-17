@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vmsystems.mcauccnotifier">
 
+    <uses-permission android:name="android.permission.CAMERA"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -9,15 +11,25 @@
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreenActivity" android:theme="@style/NoActionBarTheme">
+        <activity
+            android:name=".SplashScreenActivity"
+            android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".WelcomeActivity" android:theme="@style/NoActionBarTheme" />
-        <activity android:name=".StudentLoginActivity"></activity>
+        <activity
+            android:name=".WelcomeActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".StudentLoginScanActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".StudentLoginInputActivity"
+            android:theme="@style/NoActionBarTheme" />
+        <activity android:name=".StudentHomeActivity"></activity>
     </application>
 
 </manifest>
