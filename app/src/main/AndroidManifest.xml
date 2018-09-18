@@ -30,7 +30,9 @@
             android:name=".StudentLoginInputActivity"
             android:theme="@style/NoActionBarTheme" />
         <activity android:name=".StudentHomeActivity" />
-        <activity android:name=".StaffLoginActivity"></activity>
+        <activity android:name=".StaffLoginActivity" />
+        <activity android:name=".StaffSignupActivity" />
+        <activity android:name=".StaffHomeActivity"></activity>
     </application>
 
 </manifest>

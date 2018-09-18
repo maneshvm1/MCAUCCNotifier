@@ -1,6 +1,7 @@
 package com.vmsystems.mcauccnotifier;
 
 import android.Manifest;
+import android.arch.lifecycle.MethodCallsLogger;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -22,7 +23,7 @@ public class StudentLoginScanActivity extends AppCompatActivity implements ZXing
     private static final int MY_CAMERA_REQUEST_CODE = 100;
     private boolean cameraPermission;
 
-    private String intentExtraAdmnNo="intentExtraAdmnNo";
+    private String intentExtraAdmnNo = "intentExtraAdmnNo";
     String admnNo;
 
     @Override
@@ -57,10 +58,30 @@ public class StudentLoginScanActivity extends AppCompatActivity implements ZXing
     }
 
     private void scanBarCode() {
-        zXingScannerView = new ZXingScannerView(getApplicationContext());
-        setContentView(zXingScannerView);
-        zXingScannerView.setResultHandler(this);
-        zXingScannerView.startCamera();
+
+        //move this code to handleResult function
+        //from here
+        admnNo = "MCAL0194";
+//        Toast.makeText(this, admnNo, Toast.LENGTH_SHORT).show();
+//        zXingScannerView.resumeCameraPreview(this);
+
+        if (admnNo.matches("(M)(C)(A)(L|R)[0-9]*")) {
+//            zXingScannerView.stopCamera();            uncomment this
+            Intent intent = new Intent(getApplicationContext(), StudentLoginInputActivity.class);
+            intent.putExtra(intentExtraAdmnNo, admnNo);
+            startActivity(intent);
+        }else {
+            Toast.makeText(this, "Code mismatch. Please retry!", Toast.LENGTH_SHORT).show();
+        }
+
+        //to here.
+
+
+
+//        zXingScannerView = new ZXingScannerView(getApplicationContext());
+//        setContentView(zXingScannerView);
+//        zXingScannerView.setResultHandler(this);
+//        zXingScannerView.startCamera();
     }
 
     public void requestCameraPermission() {
@@ -81,7 +102,7 @@ public class StudentLoginScanActivity extends AppCompatActivity implements ZXing
 
                 Toast.makeText(this, "camera permission granted", Toast.LENGTH_SHORT).show();
                 cameraPermission = true;
-
+                scanBarCode();
             } else {
 
                 Toast.makeText(this, "camera permission is required to scan barcode!", Toast.LENGTH_LONG).show();
@@ -93,14 +114,7 @@ public class StudentLoginScanActivity extends AppCompatActivity implements ZXing
 
     @Override
     public void handleResult(Result result) {
-        admnNo = result.getText();
-        Toast.makeText(this, admnNo, Toast.LENGTH_SHORT).show();
-//        zXingScannerView.resumeCameraPreview(this);
-        zXingScannerView.stopCamera();
-
-        Intent intent=new Intent(getApplicationContext(),StudentLoginInputActivity.class);
-        intent.putExtra(intentExtraAdmnNo,admnNo);
-        startActivity(intent);
+//        admnNo = result.getText();
 
     }
 

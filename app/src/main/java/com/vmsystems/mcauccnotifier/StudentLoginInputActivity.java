@@ -16,11 +16,11 @@ import com.google.zxing.Result;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
-public class StudentLoginInputActivity extends AppCompatActivity  {
+public class StudentLoginInputActivity extends AppCompatActivity {
 
     String admnNo;
     EditText editTextName, editTextPhone;
-    private String intentExtraAdmnNo="intentExtraAdmnNo";
+    private String intentExtraAdmnNo = "intentExtraAdmnNo";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,20 +34,22 @@ public class StudentLoginInputActivity extends AppCompatActivity  {
         editTextName = (EditText) findViewById(R.id.editTextName);
         editTextPhone = (EditText) findViewById(R.id.editTextPhone);
 
-
     }
 
     public void btnLoginOnClick(View view) {
         String name = editTextName.getText().toString();
         String phone = editTextPhone.getText().toString();
 
-//        if (!admnNo.isEmpty()) {
-//            if (!name.isEmpty() ||!phone.isEmpty()) {
-        Intent intent=new Intent(getApplicationContext(), StudentHomeActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-//            }
-//        }
+        if (!admnNo.isEmpty()) {
+            Toast.makeText(this, "value null", Toast.LENGTH_SHORT).show();
+            if (!name.isEmpty() || !phone.isEmpty()) {
+                Intent intent = new Intent(getApplicationContext(), StudentHomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }else{
+                Toast.makeText(this, "Input both your name & phone number to continue", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
 }
