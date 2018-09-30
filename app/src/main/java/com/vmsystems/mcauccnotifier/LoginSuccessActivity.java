@@ -5,16 +5,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class StaffLoginActivity extends AppCompatActivity {
+public class LoginSuccessActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_staff_login);
+        setContentView(R.layout.activity_login_success);
+
+        Intent intent=getIntent();
+        intent.getStringExtra("");
     }
 
-    public void btnLoginOnClick(View view) {
-        startActivity(new Intent(getApplicationContext(), StaffHomeActivity.class));
+    public void btnBeginOnClick(View view) {
+
 
     }
 }
